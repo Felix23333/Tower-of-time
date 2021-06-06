@@ -110,6 +110,7 @@ class Tutorial1 extends Phaser.Scene {
         rightKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
         climbKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
         interactKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E);
+        restartKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.R);
 
         //add collider
         this.physics.add.collider(this.player, [this.plain1, this.plain2, this.plain3]);
@@ -174,6 +175,13 @@ class Tutorial1 extends Phaser.Scene {
             playerY = L1StartY;
             this.scene.start("levelOne");
         }
+        if(Phaser.Input.Keyboard.JustDown(restartKey))
+        {
+            this.Restart();
+            this.player.x = L0StartX;
+            this.player.y = L0StartY;
+            this.scene.start("tutorialLevelNew")
+        }
     }
 
     changeTime()
@@ -192,5 +200,12 @@ class Tutorial1 extends Phaser.Scene {
             direction = false;
         }
         this.scene.start("tutorialLevelNew");
+    }
+
+    Restart()
+    {
+        inventory.Clear();
+        this.ikey.alpha = 0;
+        this.scene.start("tutorialLevelNew")
     }
 }

@@ -127,6 +127,7 @@ class LevelOne extends Phaser.Scene {
         rightKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
         climbKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
         interactKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E);
+        restartKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.R);
         //add collider
         this.physics.add.collider(this.player, [this.plain1, this.platform1, this.platform1_1, this.platform2, this.platform2_1, this.platform3, this.platform3_1, this.platform4, this.platform4_1, this.platform5, this.platform5_1,this.platform6, this.platform6_1]);
         if(inventory.checkItem("key"))
@@ -236,6 +237,13 @@ class LevelOne extends Phaser.Scene {
                 }
             }
         }
+
+        if(Phaser.Input.Keyboard.JustDown(restartKey))
+        {
+            this.Restart();
+            this.player.x = L0StartX;
+            this.player.y = L0StartY;
+        }
     }
 
     changeTime()
@@ -250,5 +258,6 @@ class LevelOne extends Phaser.Scene {
         inventory.Clear();
         this.ikey.alpha = 0;
         this.key.alpha = 1;
+        seedIsPlanted = false;
     }
 }

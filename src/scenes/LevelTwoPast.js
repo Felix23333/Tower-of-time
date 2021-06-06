@@ -141,7 +141,7 @@ class LevelTwoPast extends Phaser.Scene {
         rightKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
         climbKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
         interactKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E);
-
+        restartKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.R);
         //add inventory
         this.inventory = this.add.sprite(game.config.width / 2 - 100, game.config.height - 70, "inventory");
 
@@ -353,6 +353,12 @@ class LevelTwoPast extends Phaser.Scene {
         {
             this.ladder3.isMoving = false;
         }
+        if(Phaser.Input.Keyboard.JustDown(restartKey))
+        {
+            this.Restart();
+            this.player.x = L0StartX;
+            this.player.y = L0StartY;
+        }
     }
 
     changeTime()
@@ -368,5 +374,10 @@ class LevelTwoPast extends Phaser.Scene {
         inventory.Clear();
         this.ikey.alpha = 0;
         this.key.alpha = 1;
+        switch1On = false;
+        switch2On = false;
+        ladderX = ladderStartX;
+        password = false;
+        this.scene.start("levelTwo");
     }
 }

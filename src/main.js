@@ -22,11 +22,11 @@ let isPast = false;
 
 //Save player location
 let L0StartX = 200;
-let L0StartY = 450;
+let L0StartY = 480;
 let L1StartX = 200;//add location
 let L1StartY = 450;
 let playerX = 200;
-let playerY = 450;
+let playerY = 480;
 
 //Save enemy location
 let direction = true;
@@ -37,7 +37,7 @@ let enemy1Y = 95;
 
 //control input
 let leftKey, rightKey, climbKey, interactKey;
-let startKey, menuKey;
+let startKey, menuKey, restartKey;
 let volume = 1;
 let addBackgroundMusic = false;
 let backgroundMusic;

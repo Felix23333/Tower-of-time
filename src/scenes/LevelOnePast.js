@@ -87,6 +87,7 @@ class LevelOnePast extends Phaser.Scene {
             rightKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
             climbKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
             interactKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.E);
+            restartKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.R);
 
             //add seed
             this.iseed = new Item(this, game.config.width / 2 - 15, game.config.height - 70, "seed", 0, "iseed", false);
@@ -247,6 +248,13 @@ class LevelOnePast extends Phaser.Scene {
                 isPicking = false
             }, null, this);
         }
+
+        if(Phaser.Input.Keyboard.JustDown(restartKey))
+        {
+            this.Restart();
+            this.player.x = L0StartX;
+            this.player.y = L0StartY;
+        }
     }
 
     changeTime()
@@ -259,7 +267,9 @@ class LevelOnePast extends Phaser.Scene {
     Restart()
     {
         inventory.Clear();
-        this.ikey.alpha = 0;
-        this.key.alpha = 1;
+        this.seed.alpha = 1;
+        this.iseed.alpha = 0;
+        this.scene.start("levelOne")
+        seedIsPlanted = false;
     }
 }
