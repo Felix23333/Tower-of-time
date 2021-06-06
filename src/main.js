@@ -54,7 +54,7 @@ let ladderStartX = 432
 let ladderStartY = 100
 let ladderX = ladderStartX;
 let password = false;
-
+let showHint = false;
 //animation control
 let isWalking = false;
 let isClimbing = false;

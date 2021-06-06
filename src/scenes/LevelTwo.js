@@ -34,6 +34,7 @@ class LevelTwo extends Phaser.Scene {
         this.input.keyboard.on('keycombomatch', function (event) {
             password = true;
         });
+
         //add background
         this.background = new Background(this, 0, 0, 960, 720, "background", 0, false, true);
         //add audio
@@ -53,6 +54,14 @@ class LevelTwo extends Phaser.Scene {
             fontSize: '30px',
             color: '#FFFFFF'
         }
+        //Hint cheat code
+        this.hintInfo = this.add.text(game.config.width/2 - 150 , game.config.height - 20, "Type: HINT to get hint!", infoConfig).setOrigin(0);
+        this.hint = this.add.text(game.config.width/2 - 400, game.config.height - 20, "Think as Roman numerals, also a special year of Roman Empires!", infoConfig).setOrigin(0);
+        this.input.keyboard.createCombo('HINT');
+        this.input.keyboard.on('keycombomatch', function (event) {
+            showHint = true;
+        });
+
         //add gravity
         this.physics.world.gravity.y = 1000;
 
@@ -291,6 +300,17 @@ class LevelTwo extends Phaser.Scene {
             this.player.x = L0StartX;
             this.player.y = L0StartY;
         }
+        //hint info display
+        if(showHint)
+        {
+            this.hintInfo.alpha = 0;
+            this.hint.alpha = 1;
+        }
+        else
+        {
+            this.hintInfo.alpha = 1;
+            this.hint.alpha = 0;
+        }
     }
 
     changeTime()
@@ -308,5 +328,6 @@ class LevelTwo extends Phaser.Scene {
         switch2On = false;
         ladderX = ladderStartX;
         password = false;
+        showHint = false;
     }
 }

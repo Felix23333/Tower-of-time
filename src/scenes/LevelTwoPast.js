@@ -378,6 +378,7 @@ class LevelTwoPast extends Phaser.Scene {
         switch2On = false;
         ladderX = ladderStartX;
         password = false;
+        showHint = false;
         this.scene.start("levelTwo");
     }
 }
