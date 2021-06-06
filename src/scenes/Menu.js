@@ -43,7 +43,7 @@ class Menu extends Phaser.Scene {
         if(startKey.isDown)
         {
             //DEBUG ONLY
-            //this.scene.start("levelTwo");
+            //this.scene.start("endScene");
 
             playerX = L0StartX;
             playerY = L0StartY;
