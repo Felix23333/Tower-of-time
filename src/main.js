@@ -2,7 +2,7 @@ let config = {
     type: Phaser.CANVAS,
     width: 960,
     height:720,
-    scene: [Menu, Tutorial, Tutorial1, LevelOne, LevelOnePast, LevelTwo, LevelTwoPast, End],
+    scene: [Menu, Tutorial, Tutorial1, LevelOne, LevelOnePast, LevelTwo, LevelTwoPast, End, Credits],
     physics: {
         default: 'arcade',
         arcade: {
@@ -37,7 +37,7 @@ let enemy1Y = 95;
 
 //control input
 let leftKey, rightKey, climbKey, interactKey;
-let startKey, menuKey, restartKey;
+let startKey, menuKey, restartKey, creditsKey;
 let volume = 1;
 let addBackgroundMusic = false;
 let backgroundMusic;

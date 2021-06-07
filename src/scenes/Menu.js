@@ -11,7 +11,7 @@ class Menu extends Phaser.Scene {
         this.load.audio("pickupSeed", "assets/pickupSeed.wav");
         this.load.audio("timeTravel", "assets/timeTravelSFX.wav");
         this.load.audio("doorUnlock", "assets/doorUnlock.mp3");
-        this.load.spritesheet("backgroundPic", "assets/background.png", {frameWidth: 960, frameHeight: 720, startingFrame: 0, endFrame: 7});
+        this.load.spritesheet("backgroundPic", "assets/background.png", {frameWidth: 960, frameHeight: 720, startingFrame: 0, endFrame: 31});
         //The background music is from Royalty free music https://www.epidemicsound.com/track/D4dvkLSAYV/
         this.load.audio("backgroundMusic", "assets/BackgroundMusic.mp3")
     }
@@ -22,7 +22,7 @@ class Menu extends Phaser.Scene {
         //animation config
         this.anims.create({
             key: 'animate',
-            frames: this.anims.generateFrameNames('backgroundPic', {start: 0, end: 7}),
+            frames: this.anims.generateFrameNames('backgroundPic', {start: 0, end: 31}),
             frameRate: 10,
             repeat: -1
         });
