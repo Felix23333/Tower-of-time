@@ -44,10 +44,11 @@ class Menu extends Phaser.Scene {
         {
             //DEBUG ONLY
             //this.scene.start("endScene");
-
             playerX = L0StartX;
             playerY = L0StartY;
             password = false;
+            showHint = false;
+            ladderX = ladderStartX;
             this.scene.start("tutorialLevelNew");
         }
     }
